@@ -104,6 +104,10 @@ function switchEvent(properties) {
         console.log('tramobt');
         container_content.innerHTML = createTableTramobt(properties);
         return;
+    } else if (properties.hasOwnProperty('codigosub')) {
+        console.log('subestacion');
+        container_content.innerHTML = JSON.stringify(properties);
+        return;
     } else {
         console.log('no se encontro propiedad');
         container_content.innerHTML = '';
@@ -115,7 +119,7 @@ function switchEvent(properties) {
 
 // SOLO LOS LAYERS QUE RETORNEN TRUE SERAN ATENDIDOS EN EL PULSE CLICK
 function onlyLayerFilter(layer) {
-    const list_layers = ['apoyos', 'clientes', 'trafos', 'tramomt', 'tramobt'];
+    const list_layers = ['apoyos', 'clientes', 'trafos', 'tramomt', 'tramobt','subestacion'];
     return list_layers.includes(layer.get('name'));
 }
 
